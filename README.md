@@ -5,7 +5,7 @@ An *ext*ention of JSON that supports *Next* gen features.
 ## Usage
 
 ```bash
-npm install --save "git+https://github.com/EskelCz/jsonext.git"
+npm install --save "git+https://github.com/EskelCz/jsonext-esm.git"
 ```
 
 ```js
