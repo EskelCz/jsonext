@@ -1098,7 +1098,7 @@ function separatorChar (c) {
 	console.warn(`JSONext: '${c}' is not valid ECMAScript; consider escaping`)
 }
 
-export function parse (text, reviver) {
+export default function parse (text, reviver) {
 	source = String(text)
 	parseState = 'start'
 	stack = []

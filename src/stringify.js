@@ -206,7 +206,7 @@ function serializeArray (value) {
 	return final
 }
 
-export function stringify (value, replacer, space) {
+export default function stringify (value, replacer, space) {
 	stack = []
 	indent = ''
 	propertyList = undefined
