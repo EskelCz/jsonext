@@ -3,7 +3,9 @@
   "version": "2.0.0",
   "description": "An extension of JSON that supports the Next gen features, ESM version",
   "type": "module",
+  "files": ["src"],
   "exports": "./src/index.js",
+  "engines": { "node": ">=14.16" },
   "scripts": {
     "prepublishOnly": "npm run lint && npm test",
     "preversion": "npm run lint && npm test",
@@ -13,20 +15,10 @@
     "type": "git",
     "url": "git+https://github.com/jordanbtucker/jsonext.git"
   },
-  "keywords": [
-    "json",
-    "json5",
-    "es5",
-    "es6",
-    "es7",
-    "es2015",
-    "ecmascript"
-  ],
+  "keywords": ["json", "json5", "es5", "es6", "es7", "es2015", "ecmascript"],
   "author": "Jordan Tucker <jordanbtucker@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jordanbtucker/jsonext/issues"
-  },
+  "bugs": { "url": "https://github.com/jordanbtucker/jsonext/issues" },
   "homepage": "https://github.com/jordanbtucker/jsonext#readme",
   "devDependencies": {
     "cross-env": "^3.1.3",
