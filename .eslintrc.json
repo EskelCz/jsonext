@@ -9,8 +9,7 @@
 		"standard"
 	],
 	"extends": [
-		"standard",
-		"plugin:node/recommended"
+		"standard"
 	],
 	"rules": {
 		"array-bracket-spacing": [

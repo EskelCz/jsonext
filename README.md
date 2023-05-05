@@ -1,4 +1,4 @@
-# JSONext
+# JSONext ESM
 
 [![Build Status](https://travis-ci.org/jordanbtucker/jsonext.svg?branch=master)](https://travis-ci.org/jordanbtucker/jsonext)
 
@@ -6,38 +6,13 @@ An *ext*ention of JSON that supports *Next* gen features.
 
 ## Usage
 
-### Node
-
 ```bash
 npm install --save jsonext
 ```
 
 ```js
-const JSONext = require('jsonext')
+import JSONext from 'jsonext-esm'
 ```
-
-### Browser
-
-Using the [unpkg] CDN.
-
-```html
-<script src="https://unpkg.com/jsonext/dist/jsonext.js"></script>
-```
-
-Using npm.
-
-```bash
-npm install --save jsonext
-```
-
-```html
-<script src="/node_modules/jsonext/dist/jsonext.js"></script>
-```
-
-#### Bower
-
-JSONext is not registered with Bower because it requires committing generated
-files to the the Git repository, [which is a bad thing][1].
 
 ## API
 
@@ -50,19 +25,6 @@ Parses JSONext text into an ECMAScript value.
 ### `JSONext.stringify(value [, replacer [, space]])`
 
 Returns a string in JSONext format representing an ECMAScript value.
-
-## File extension
-
-JSONext uses the file extension `.jsonext`. You can `require` JSONext files
-with the following:
-
-```js
-// Register the .jsonext file extension.
-require('jsonext/register')
-
-// Load a JSONext file directly.
-const config = require('./config.jsonext')
-```
 
 ## Current features
 
@@ -122,6 +84,5 @@ The following document is invalid.
 { invalidTemplate: `Jane said, "${message}"` }
 ```
 
-[unpkg]: https://unpkg.com/
 [JSON API]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON#Methods
 [1]: https://medium.com/@kentcdodds/why-i-don-t-commit-generated-files-to-master-a4d76382564#.vd308mxkn

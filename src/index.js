@@ -1,9 +1,6 @@
-const parse = require('./parse')
-const stringify = require('./stringify')
+import parse from './parse'
+import stringify from './stringify'
 
-const JSONext = {
-	parse,
-	stringify,
-}
+const JSONext = {parse, stringify}
 
-module.exports = JSONext
+export default JSONext

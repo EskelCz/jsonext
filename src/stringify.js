@@ -1,4 +1,5 @@
-const util = require('./util')
+
+import * as util from './util.js'
 
 let stack
 let indent
@@ -6,50 +7,12 @@ let propertyList
 let replacerFunc
 let gap
 
-function stringify (value, replacer, space) {
-	stack = []
-	indent = ''
-	propertyList = undefined
-	replacerFunc = undefined
-	gap = ''
-
-	if (typeof replacer === 'function') {
-		replacerFunc = replacer
-	} else if (Array.isArray(replacer)) {
-		propertyList = []
-		for (const v of replacer) {
-			let item
-
-			if (typeof v === 'string') {
-				item = v
-			} else if (typeof v === 'number') {
-				item = String(v)
-			}
-
-			if (item !== undefined && propertyList.indexOf(item) < 0) {
-				propertyList.push(item)
-			}
-		}
-	}
-
-	if (typeof space === 'number') {
-		if (space > 0) {
-			space = Math.min(10, Math.floor(space))
-			gap = '          '.substr(0, space)
-		}
-	} else if (typeof space === 'string') {
-		gap = space.substr(0, 10)
-	}
-
-	return serializeProperty('', {'': value})
-}
-
 function serializeProperty (key, holder) {
 	let value = holder[key]
 	if (value != null) {
 		if (typeof value.toJSONext === 'function') {
 			value = value.toJSONext(key)
-		} else if(typeof value.toJSON5 === 'function') {
+		} else if (typeof value.toJSON5 === 'function') {
 			value = value.toJSON5(key)
 		} else if (typeof value.toJSON === 'function') {
 			value = value.toJSON(key)
@@ -243,4 +206,40 @@ function serializeArray (value) {
 	return final
 }
 
-module.exports = stringify
+export function stringify (value, replacer, space) {
+	stack = []
+	indent = ''
+	propertyList = undefined
+	replacerFunc = undefined
+	gap = ''
+
+	if (typeof replacer === 'function') {
+		replacerFunc = replacer
+	} else if (Array.isArray(replacer)) {
+		propertyList = []
+		for (const v of replacer) {
+			let item
+
+			if (typeof v === 'string') {
+				item = v
+			} else if (typeof v === 'number') {
+				item = String(v)
+			}
+
+			if (item !== undefined && propertyList.indexOf(item) < 0) {
+				propertyList.push(item)
+			}
+		}
+	}
+
+	if (typeof space === 'number') {
+		if (space > 0) {
+			space = Math.min(10, Math.floor(space))
+			gap = '          '.substr(0, space)
+		}
+	} else if (typeof space === 'string') {
+		gap = space.substr(0, 10)
+	}
+
+	return serializeProperty('', {'': value})
+}

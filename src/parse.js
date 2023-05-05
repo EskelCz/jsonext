@@ -1,4 +1,5 @@
-const util = require('./util')
+
+import * as util from './util.js'
 
 let source
 let parseState
@@ -9,34 +10,6 @@ let column
 let token
 let key
 let root
-
-function parse (text, reviver) {
-	source = String(text)
-	parseState = 'start'
-	stack = []
-	pos = 0
-	line = 1
-	column = 0
-	token = undefined
-	key = undefined
-	root = undefined
-
-	do {
-		token = lex()
-
-		if (!parseStates[parseState]) {
-			throw invalidParseState()
-		}
-
-		parseStates[parseState]()
-	} while (token.type !== 'eof')
-
-	if (typeof reviver === 'function') {
-		return internalize({'': root}, '', reviver)
-	}
-
-	return root
-}
 
 function internalize (holder, name, reviver) {
 	const value = holder[name]
@@ -1125,4 +1098,30 @@ function separatorChar (c) {
 	console.warn(`JSONext: '${c}' is not valid ECMAScript; consider escaping`)
 }
 
-module.exports = parse
+export function parse (text, reviver) {
+	source = String(text)
+	parseState = 'start'
+	stack = []
+	pos = 0
+	line = 1
+	column = 0
+	token = undefined
+	key = undefined
+	root = undefined
+
+	do {
+		token = lex()
+
+		if (!parseStates[parseState]) {
+			throw invalidParseState()
+		}
+
+		parseStates[parseState]()
+	} while (token.type !== 'eof')
+
+	if (typeof reviver === 'function') {
+		return internalize({'': root}, '', reviver)
+	}
+
+	return root
+}

@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "description": "An extension of JSON that supports the Next gen features",
   "main": "lib/",
+  "type": "module",
   "files": [
     "lib/",
     "dist/"
@@ -10,8 +11,6 @@
   "scripts": {
     "prepublishOnly": "npm run lint && npm test",
     "preversion": "npm run lint && npm test",
-    "build": "node build.js",
-    "lint": "eslint --fix build.js src/",
     "test": "cross-env NODE_ENV=test npm run build && nyc --reporter=html --reporter=text mocha"
   },
   "repository": {
