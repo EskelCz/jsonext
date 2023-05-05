@@ -1,17 +1,13 @@
 {
   "name": "jsonext",
-  "version": "1.1.0",
-  "description": "An extension of JSON that supports the Next gen features",
-  "main": "lib/",
+  "version": "2.0.0",
+  "description": "An extension of JSON that supports the Next gen features, ESM version",
   "type": "module",
-  "files": [
-    "lib/",
-    "dist/"
-  ],
+  "exports": "./src/index.js",
   "scripts": {
     "prepublishOnly": "npm run lint && npm test",
     "preversion": "npm run lint && npm test",
-    "test": "cross-env NODE_ENV=test npm run build && nyc --reporter=html --reporter=text mocha"
+    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha"
   },
   "repository": {
     "type": "git",
@@ -33,12 +29,6 @@
   },
   "homepage": "https://github.com/jordanbtucker/jsonext#readme",
   "devDependencies": {
-    "babel-core": "^6.21.0",
-    "babel-plugin-istanbul": "^3.0.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-register": "^6.18.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.1",
     "cross-env": "^3.1.3",
     "del": "^2.2.2",
     "eslint": "^4.4.1",
