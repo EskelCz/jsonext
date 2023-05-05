@@ -1,7 +1,5 @@
 # JSONext ESM
 
-[![Build Status](https://travis-ci.org/jordanbtucker/jsonext.svg?branch=master)](https://travis-ci.org/jordanbtucker/jsonext)
-
 An *ext*ention of JSON that supports *Next* gen features.
 
 ## Usage
